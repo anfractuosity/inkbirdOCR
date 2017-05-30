@@ -25,6 +25,7 @@ while true; do
 	
 				# Ensure exit code was 0, meaning OCR detected numbers of 3 digits
 				if [ $? -eq 0 ] && [ "${Z: -1}" != "-" ]; then
+					echo $Z
 					# Store number from OCR as integer, convert b to 6 
 					# (as ssocr sometimes thinks 6 is B in hex)
 					NUMI=$(echo "$(echo $Z | sed "s/b/6/g")" | bc)	
