@@ -10,6 +10,8 @@ Finds the OCR'd value which is closest to the target value you specify in the sc
 
 # log-most-common.sh
 
-Finds the OCR'd value which appears the most common. 
+Finds the OCR'd value which appears the most common (doesn't require you to specify a target value).
+
+# Hardware
 
 See https://www.anfractuosity.com/projects/fermentation-temperature-control-with-inkbird-308/ for more details on how the hardware is setup.
