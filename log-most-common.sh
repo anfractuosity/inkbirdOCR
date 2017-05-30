@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# The Inbird target temperature was set to 20C for my particular yeast (wlp023)
-TARGET=200
-
 while true; do
 
 	# Take photo using current date	
@@ -46,7 +43,7 @@ while true; do
 		# Find best value out of possible candidate OCRd values
 		for var in "${!ARRAY[@]}";
 		do	
-			# Check if this number is the smallest different from target	
+			# Check if this number appears the most common	
 			if [ ${ARRAY[$var]} -gt $LOW ]; then
 				LOW=${ARRAY[$var]}
 				LVAL=$var
