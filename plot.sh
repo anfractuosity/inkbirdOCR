@@ -4,9 +4,9 @@
 
 TARGET="20.0"
 
-LTARGET=$(echo "$TARGET - 7" | bc)
-HTARGET=$(echo "$TARGET + 7" | bc)
+export LTARGET=$(echo "$TARGET - 7" | bc)
+export HTARGET=$(echo "$TARGET + 7" | bc)
 
-cat temps | awk -F, '{ if ($2 >= $LTARGET && $2 <= $HTARGET ) print $1 "," $2 }' > temps.csv
+cat temps | awk -F, '{ if ($2 >= ENVIRON["LTARGET"] && $2 <= ENVIRON["HTARGET"]) print $1 "," $2}' > temps.csv
 
 gnuplot temp.plt
