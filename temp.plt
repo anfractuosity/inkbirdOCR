@@ -1,6 +1,15 @@
 set key off
-set term png
-set term png size 1000,400
+set term png transparent truecolor
+
+set title "Fermentation Temperature" textcolor rgb "orange" font "Helvetica,50" 
+
+set object 1 rectangle from graph 0, graph 0 to graph 1, graph 1 behind fc rgbcolor 'white' fs noborder
+
+set term png size 2000,900 font "Helvetica,30" 
+
+set xtics textcolor rgb "orange" 
+set ytics textcolor rgb "orange" 
+
 set output 'inkbird.png'
 set datafile separator ','
 set yrange [10:30]

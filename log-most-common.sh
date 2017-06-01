@@ -18,7 +18,7 @@ while true; do
 			# Shear image by different amounts 
 			for SHEAR in 65 10; do
 
-				Z=$(../../ssocr/ssocr -d3 -i$PIX rotate 359 crop 624 821 1230 550 shear $SHEAR -t$I -f white ${DATE}.jpg -o dump.jpg)
+				Z=$(../../ssocr/ssocr -d3 -i$PIX rotate 359 crop 600 825 1230 550 shear $SHEAR -t$I -f white ${DATE}.jpg -o dump.jpg)
 	
 				# Ensure exit code was 0, meaning OCR detected numbers of 3 digits
 				if [ $? -eq 0 ] && [ "${Z: -1}" != "-" ]; then
