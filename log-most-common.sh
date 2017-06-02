@@ -10,7 +10,7 @@ while true; do
 	X=0
 
 	# Try different thresholds
-	for I in 90 80 50 40 20 10; do
+	for I in 90 80 70 60 50 40 30 20 10; do
 
 		# Ensure there is at least PIX pixels
 		for PIX in 50 20 5; do
