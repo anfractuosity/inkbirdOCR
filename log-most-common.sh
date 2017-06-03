@@ -25,7 +25,7 @@ while true; do
 					echo $Z
 					# Store number from OCR as integer, convert b to 6 
 					# (as ssocr sometimes thinks 6 is B in hex)
-					NUMI=$(echo "$(echo $Z | sed "s/b/6/g")" | bc)	
+					NUMI=$(echo "$(echo $Z | sed "s/b/6/g;s/\.//g")" | bc)	
 					((ARRAY[$NUMI]++))
 					X=1
 				fi
