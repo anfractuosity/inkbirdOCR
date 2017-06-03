@@ -18,14 +18,21 @@ while true; do
 			# Shear image by different amounts 
 			for SHEAR in 65 10; do
 
-				Z=$(../../ssocr/ssocr -d3 -i$PIX rotate 359 crop 600 825 1230 550 shear $SHEAR -t$I -f white ${DATE}.jpg -o dump.jpg)
+				Z=$(../../ssocr/ssocr -d-1 -i$PIX rotate 359 crop 600 825 1230 550 shear $SHEAR -t$I -f white ${DATE}.jpg -o dump.jpg)
 	
 				# Ensure exit code was 0, meaning OCR detected numbers of 3 digits
-				if [ $? -eq 0 ] && [ "${Z: -1}" != "-" ]; then
+
+				Z=$(echo $Z | sed "s/b/6/g;s/\.//g")
+
+				if [ $? -eq 0 ] && [[ ${Z} =~ ^[0-9]+$ ]] && [ ${#Z} -ge 2 ] && [ ${#Z} -le 3 ]; then
+				
 					echo $Z
+				
 					# Store number from OCR as integer, convert b to 6 
 					# (as ssocr sometimes thinks 6 is B in hex)
-					NUMI=$(echo "$(echo $Z | sed "s/b/6/g;s/\.//g")" | bc)	
+
+					NUMI=$(echo "$(echo $Z)" | bc)
+
 					((ARRAY[$NUMI]++))
 					X=1
 				fi
